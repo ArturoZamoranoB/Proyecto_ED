@@ -46,22 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FutbolFormulario.cs">
+    <Compile Include="Clases\Arreglo.cs" />
+    <Compile Include="FutbolForms\MenuBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FutbolFormulario.Designer.cs">
-      <DependentUpon>FutbolFormulario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FutbolPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FutbolPrincipal.Designer.cs">
-      <DependentUpon>FutbolPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MenuBienvenida.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuBienvenida.Designer.cs">
+    <Compile Include="FutbolForms\MenuBienvenida.Designer.cs">
       <DependentUpon>MenuBienvenida.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal.cs">
@@ -73,13 +62,7 @@
     <Compile Include="Models\PersonaModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FutbolFormulario.resx">
-      <DependentUpon>FutbolFormulario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FutbolPrincipal.resx">
-      <DependentUpon>FutbolPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuBienvenida.resx">
+    <EmbeddedResource Include="FutbolForms\MenuBienvenida.resx">
       <DependentUpon>MenuBienvenida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">

@@ -137,7 +137,7 @@ namespace Proyecto_ED
 
         private void btn_Futbol_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new FutbolFormulario());
+            AbrirFormInPanel(new MenuBienvenida());
         }
     }
 }
