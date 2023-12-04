@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Proyecto_ED.BasquetbolForms;
+using Proyecto_ED.BeisbolForms;
 
 namespace Proyecto_ED
 {
@@ -138,6 +140,16 @@ namespace Proyecto_ED
         private void btn_Futbol_Click(object sender, EventArgs e)
         {
             AbrirFormInPanel(new MenuBienvenida());
+        }
+
+        private void btn_Basquetbol_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new MenuBasquetbol());
+        }
+
+        private void btn_Beisbol_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new MenuBeisbol());
         }
     }
 }

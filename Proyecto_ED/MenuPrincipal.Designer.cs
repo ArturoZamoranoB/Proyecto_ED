@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.panelDesplegable = new System.Windows.Forms.Panel();
+            this.btn_Basquetbol = new System.Windows.Forms.Button();
+            this.btn_Beisbol = new System.Windows.Forms.Button();
+            this.btn_Voleibol = new System.Windows.Forms.Button();
+            this.btn_Futbol = new System.Windows.Forms.Button();
+            this.btn_Menu = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.btnDeplegable = new System.Windows.Forms.PictureBox();
@@ -38,11 +43,6 @@
             this.Restaurar = new System.Windows.Forms.PictureBox();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btn_Menu = new System.Windows.Forms.Button();
-            this.btn_Futbol = new System.Windows.Forms.Button();
-            this.btn_Voleibol = new System.Windows.Forms.Button();
-            this.btn_Beisbol = new System.Windows.Forms.Button();
-            this.btn_Basquetbol = new System.Windows.Forms.Button();
             this.panelDesplegable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelTitulo.SuspendLayout();
@@ -68,6 +68,90 @@
             this.panelDesplegable.Size = new System.Drawing.Size(220, 650);
             this.panelDesplegable.TabIndex = 0;
             this.panelDesplegable.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesplegable_Paint);
+            // 
+            // btn_Basquetbol
+            // 
+            this.btn_Basquetbol.FlatAppearance.BorderSize = 0;
+            this.btn_Basquetbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Basquetbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Basquetbol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Basquetbol.ForeColor = System.Drawing.Color.White;
+            this.btn_Basquetbol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Basquetbol.Image")));
+            this.btn_Basquetbol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Basquetbol.Location = new System.Drawing.Point(0, 228);
+            this.btn_Basquetbol.Name = "btn_Basquetbol";
+            this.btn_Basquetbol.Size = new System.Drawing.Size(220, 34);
+            this.btn_Basquetbol.TabIndex = 5;
+            this.btn_Basquetbol.Text = "Basquetbol";
+            this.btn_Basquetbol.UseVisualStyleBackColor = true;
+            this.btn_Basquetbol.Click += new System.EventHandler(this.btn_Basquetbol_Click);
+            // 
+            // btn_Beisbol
+            // 
+            this.btn_Beisbol.FlatAppearance.BorderSize = 0;
+            this.btn_Beisbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Beisbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Beisbol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Beisbol.ForeColor = System.Drawing.Color.White;
+            this.btn_Beisbol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Beisbol.Image")));
+            this.btn_Beisbol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Beisbol.Location = new System.Drawing.Point(0, 281);
+            this.btn_Beisbol.Name = "btn_Beisbol";
+            this.btn_Beisbol.Size = new System.Drawing.Size(220, 34);
+            this.btn_Beisbol.TabIndex = 4;
+            this.btn_Beisbol.Text = "Beisbol";
+            this.btn_Beisbol.UseVisualStyleBackColor = true;
+            this.btn_Beisbol.Click += new System.EventHandler(this.btn_Beisbol_Click);
+            // 
+            // btn_Voleibol
+            // 
+            this.btn_Voleibol.FlatAppearance.BorderSize = 0;
+            this.btn_Voleibol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Voleibol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Voleibol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Voleibol.ForeColor = System.Drawing.Color.White;
+            this.btn_Voleibol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Voleibol.Image")));
+            this.btn_Voleibol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Voleibol.Location = new System.Drawing.Point(3, 341);
+            this.btn_Voleibol.Name = "btn_Voleibol";
+            this.btn_Voleibol.Size = new System.Drawing.Size(217, 34);
+            this.btn_Voleibol.TabIndex = 3;
+            this.btn_Voleibol.Text = "Voleibol";
+            this.btn_Voleibol.UseVisualStyleBackColor = true;
+            // 
+            // btn_Futbol
+            // 
+            this.btn_Futbol.FlatAppearance.BorderSize = 0;
+            this.btn_Futbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Futbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Futbol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Futbol.ForeColor = System.Drawing.Color.White;
+            this.btn_Futbol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Futbol.Image")));
+            this.btn_Futbol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Futbol.Location = new System.Drawing.Point(0, 171);
+            this.btn_Futbol.Name = "btn_Futbol";
+            this.btn_Futbol.Size = new System.Drawing.Size(220, 34);
+            this.btn_Futbol.TabIndex = 2;
+            this.btn_Futbol.Text = "Futbol";
+            this.btn_Futbol.UseVisualStyleBackColor = true;
+            this.btn_Futbol.Click += new System.EventHandler(this.btn_Futbol_Click);
+            // 
+            // btn_Menu
+            // 
+            this.btn_Menu.FlatAppearance.BorderSize = 0;
+            this.btn_Menu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Menu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Menu.ForeColor = System.Drawing.Color.White;
+            this.btn_Menu.Image = ((System.Drawing.Image)(resources.GetObject("btn_Menu.Image")));
+            this.btn_Menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Menu.Location = new System.Drawing.Point(0, 111);
+            this.btn_Menu.Name = "btn_Menu";
+            this.btn_Menu.Size = new System.Drawing.Size(220, 34);
+            this.btn_Menu.TabIndex = 0;
+            this.btn_Menu.Text = "Menu";
+            this.btn_Menu.UseVisualStyleBackColor = true;
+            this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
             // 
             // pictureBox2
             // 
@@ -161,88 +245,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(1080, 600);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
-            // 
-            // btn_Menu
-            // 
-            this.btn_Menu.FlatAppearance.BorderSize = 0;
-            this.btn_Menu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Menu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Menu.ForeColor = System.Drawing.Color.White;
-            this.btn_Menu.Image = ((System.Drawing.Image)(resources.GetObject("btn_Menu.Image")));
-            this.btn_Menu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Menu.Location = new System.Drawing.Point(0, 111);
-            this.btn_Menu.Name = "btn_Menu";
-            this.btn_Menu.Size = new System.Drawing.Size(220, 34);
-            this.btn_Menu.TabIndex = 0;
-            this.btn_Menu.Text = "Menu";
-            this.btn_Menu.UseVisualStyleBackColor = true;
-            this.btn_Menu.Click += new System.EventHandler(this.btn_Menu_Click);
-            // 
-            // btn_Futbol
-            // 
-            this.btn_Futbol.FlatAppearance.BorderSize = 0;
-            this.btn_Futbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Futbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Futbol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Futbol.ForeColor = System.Drawing.Color.White;
-            this.btn_Futbol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Futbol.Image")));
-            this.btn_Futbol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Futbol.Location = new System.Drawing.Point(0, 171);
-            this.btn_Futbol.Name = "btn_Futbol";
-            this.btn_Futbol.Size = new System.Drawing.Size(220, 34);
-            this.btn_Futbol.TabIndex = 2;
-            this.btn_Futbol.Text = "Futbol";
-            this.btn_Futbol.UseVisualStyleBackColor = true;
-            this.btn_Futbol.Click += new System.EventHandler(this.btn_Futbol_Click);
-            // 
-            // btn_Voleibol
-            // 
-            this.btn_Voleibol.FlatAppearance.BorderSize = 0;
-            this.btn_Voleibol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Voleibol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Voleibol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Voleibol.ForeColor = System.Drawing.Color.White;
-            this.btn_Voleibol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Voleibol.Image")));
-            this.btn_Voleibol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Voleibol.Location = new System.Drawing.Point(3, 341);
-            this.btn_Voleibol.Name = "btn_Voleibol";
-            this.btn_Voleibol.Size = new System.Drawing.Size(217, 34);
-            this.btn_Voleibol.TabIndex = 3;
-            this.btn_Voleibol.Text = "Voleibol";
-            this.btn_Voleibol.UseVisualStyleBackColor = true;
-            // 
-            // btn_Beisbol
-            // 
-            this.btn_Beisbol.FlatAppearance.BorderSize = 0;
-            this.btn_Beisbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Beisbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Beisbol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Beisbol.ForeColor = System.Drawing.Color.White;
-            this.btn_Beisbol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Beisbol.Image")));
-            this.btn_Beisbol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Beisbol.Location = new System.Drawing.Point(0, 281);
-            this.btn_Beisbol.Name = "btn_Beisbol";
-            this.btn_Beisbol.Size = new System.Drawing.Size(220, 34);
-            this.btn_Beisbol.TabIndex = 4;
-            this.btn_Beisbol.Text = "Beisbol";
-            this.btn_Beisbol.UseVisualStyleBackColor = true;
-            // 
-            // btn_Basquetbol
-            // 
-            this.btn_Basquetbol.FlatAppearance.BorderSize = 0;
-            this.btn_Basquetbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Basquetbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Basquetbol.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Basquetbol.ForeColor = System.Drawing.Color.White;
-            this.btn_Basquetbol.Image = ((System.Drawing.Image)(resources.GetObject("btn_Basquetbol.Image")));
-            this.btn_Basquetbol.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Basquetbol.Location = new System.Drawing.Point(0, 228);
-            this.btn_Basquetbol.Name = "btn_Basquetbol";
-            this.btn_Basquetbol.Size = new System.Drawing.Size(220, 34);
-            this.btn_Basquetbol.TabIndex = 5;
-            this.btn_Basquetbol.Text = "Basquetbol";
-            this.btn_Basquetbol.UseVisualStyleBackColor = true;
             // 
             // MenuPrincipal
             // 

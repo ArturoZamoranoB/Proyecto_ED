@@ -1,5 +1,4 @@
 ﻿using Proyecto_ED.Clases;
-using Proyecto_ED.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,21 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace Proyecto_ED
-{
-    public partial class MenuBienvenida : Form
-    {
+using Proyecto_ED.Models;
+using Proyecto_ED.Clases;
 
-        private Arreglo gestorFutbol = new Arreglo();
-        public MenuBienvenida()
+namespace Proyecto_ED.BasquetbolForms
+{
+    public partial class MenuBasquetbol : Form
+    {
+        private ListaJugadores listaBasquetbol = new ListaJugadores();
+        public MenuBasquetbol()
         {
             InitializeComponent();
             InicializarDataGridView();
         }
-        public event EventHandler DatosGuardados;
         private void InicializarDataGridView()
         {
-
+            // Configurar las columnas del DataGridView
             dataGridView1.Columns.Add("ColumnID", "Id");
             dataGridView1.Columns.Add("ColumnNombre", "Nombre");
             dataGridView1.Columns.Add("ColumnEdad", "Edad");
@@ -31,28 +31,11 @@ namespace Proyecto_ED
             dataGridView1.Columns.Add("ColumnCuatrimestre", "Cuatrimestre");
             dataGridView1.Columns.Add("ColumnCorreo", "Correo");
         }
-        private void LimpiarCampos()
-        {
-        
-            txtNombre.Text = "";
-            txtEdad.Text = "";
-            txtCarrera.Text = "";
-            txtCuatrimestre.Text = "";
-            txtCorreo.Text = "";
-        }
-        private void LimpiarCamposId()
-        {
-       
-            textBoxEliminar.Text = "";
-            textBoxModificar.Text = "";
-        }
-
         private void ActualizarDataGridView()
         {
-
             dataGridView1.Rows.Clear();
 
-            foreach (var jugador in gestorFutbol.Jugadores)
+            foreach (var jugador in listaBasquetbol.ObtenerJugadores())
             {
                 if (jugador != null)
                 {
@@ -66,18 +49,22 @@ namespace Proyecto_ED
                     );
                 }
             }
-
-           
-            dataGridView1.Refresh();
+        }
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtEdad.Text = "";
+            txtCarrera.Text = "";
+            txtCuatrimestre.Text = "";
+            txtCorreo.Text = "";
         }
 
-        private void txtEdad_TextChanged(object sender, EventArgs e)
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
         }
-        
 
-        private void txtNombre_TextChanged(object sender, EventArgs e)
+        private void MenuBasquetbol_Load(object sender, EventArgs e)
         {
 
         }
@@ -97,30 +84,93 @@ namespace Proyecto_ED
 
         }
 
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
+     
+            string nombre = txtNombre.Text;
+            int edad = int.Parse(txtEdad.Text);
+            string carrera = txtCarrera.Text;
+            string cuatrimestre = txtCuatrimestre.Text;
+            string correo = txtCorreo.Text;
+
+   
+            if (int.TryParse(textBoxModificar.Text, out int idModificar))
+            {
+             
+                listaBasquetbol.ModificarJugador(idModificar, nombre, edad, carrera, cuatrimestre, correo);
+
+           
+                ActualizarDataGridView();
+
+            
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un ID válido para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+     
+        private void btn_Agregar_Click(object sender, EventArgs e)
+        {
+  
+            string nombre = txtNombre.Text;
+            int edad;
+
+            if (int.TryParse(txtEdad.Text, out edad))
+            {
+                string carrera = txtCarrera.Text;
+                string cuatrimestre = txtCuatrimestre.Text;
+                string correo = txtCorreo.Text;
+
+     
+                Persona nuevoJugador = new Persona
+                {
+                    Id = listaBasquetbol.ObtenerNuevoId(),
+                    Nombre = nombre,
+                    Edad = edad,
+                    Carrera = carrera,
+                    Cuatrimestre = cuatrimestre,
+                    Correo = correo
+                };
+
+                listaBasquetbol.AgregarJugador(nuevoJugador);
+
+         
+                ActualizarDataGridView();
+
+              
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese una edad válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
 
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-       
+            // Obtener el ID ingresado en el TextBoxEliminar
             if (int.TryParse(textBoxEliminar.Text, out int idEliminar))
             {
-      
-                Persona jugadorExistente = gestorFutbol.BuscarJugadorPorId(idEliminar);
+                // Verificar si el jugador con el ID especificado existe
+                Persona jugadorExistente = listaBasquetbol.BuscarJugadorPorId(idEliminar);
 
                 if (jugadorExistente != null)
                 {
-  
-                    gestorFutbol.EliminarJugador(idEliminar);
-
-              
+                    // El jugador existe, eliminarlo
+                    listaBasquetbol.EliminarJugador(idEliminar);
                     ActualizarDataGridView();
-                    LimpiarCamposId();
-
                     MessageBox.Show($"Jugador con ID {idEliminar} eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-              
+                    // El jugador no existe
                     MessageBox.Show($"No se encontró un jugador con ID {idEliminar}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -130,27 +180,23 @@ namespace Proyecto_ED
             }
         }
 
-
-
-
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
-
+            // Obtener el ID ingresado en el TextBox
             if (int.TryParse(textBoxModificar.Text, out int idModificar))
             {
-      
-               Persona jugadorModificar = gestorFutbol.BuscarJugadorPorId(idModificar);
+                // Buscar el jugador con el ID ingresado
+                Persona jugadorModificar = listaBasquetbol.BuscarJugadorPorId(idModificar);
 
-       
+                // Verificar si se encontró el jugador
                 if (jugadorModificar != null)
                 {
-                    
+                    // Cargar los datos en los TextBoxModificar para su modificación
                     txtNombre.Text = jugadorModificar.Nombre;
                     txtEdad.Text = jugadorModificar.Edad.ToString();
                     txtCarrera.Text = jugadorModificar.Carrera;
                     txtCuatrimestre.Text = jugadorModificar.Cuatrimestre;
                     txtCorreo.Text = jugadorModificar.Correo;
-                   
                 }
                 else
                 {
@@ -161,61 +207,10 @@ namespace Proyecto_ED
             {
                 MessageBox.Show("Ingrese un ID válido para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
-        private void btn_Agregar_Click(object sender, EventArgs e)
-        {
-            
-            string nombre = txtNombre.Text;
-            int edad = int.Parse(txtEdad.Text);
-            string carrera = txtCarrera.Text;
-            string cuatrimestre = txtCuatrimestre.Text;
-            string correo = txtCorreo.Text;
 
-            gestorFutbol.AgregarJugador(nombre, edad, carrera, cuatrimestre, correo);
-
-            
-            ActualizarDataGridView();
-
-     
-            LimpiarCampos();
-        }
-
-        private void btn_Guardar_Click(object sender, EventArgs e)
-        {
-           
-            string nombre = txtNombre.Text;
-            int edad = int.Parse(txtEdad.Text);
-            string carrera = txtCarrera.Text;
-            string cuatrimestre = txtCuatrimestre.Text;
-            string correo = txtCorreo.Text;
-
-     
-            if (int.TryParse(textBoxModificar.Text, out int idModificar))
-            {
-            
-                gestorFutbol.ModificarJugador(idModificar, nombre, edad, carrera, cuatrimestre, correo);
-
-             
-                ActualizarDataGridView();
-
-                
-                LimpiarCampos();
-                LimpiarCamposId();
-            }
-            else
-            {
-                MessageBox.Show("Ingrese un ID válido para modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void MenuBienvenida_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void textBoxEliminar_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -225,51 +220,15 @@ namespace Proyecto_ED
 
         }
 
-        private void textBoxEliminar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelCorreo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelCuatrimestre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelEdad_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNombre_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelTitulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
+        
+        
+        
+        
+        
+        
         }
     }
-        
-    
 }

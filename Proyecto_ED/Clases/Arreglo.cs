@@ -10,11 +10,10 @@ namespace Proyecto_ED.Clases
 {
     internal class Arreglo
     {
-        private PersonaModel.Persona[] jugadores = new PersonaModel.Persona[10];
+        private Persona[] jugadores = new Persona[10];
         private int indice = 0;
 
-        // Propiedad para exponer el arreglo de jugadores
-        public PersonaModel.Persona[] Jugadores
+        public Persona[] Jugadores
         {
             get { return jugadores; }
         }
@@ -23,7 +22,7 @@ namespace Proyecto_ED.Clases
         {
             if (indice < jugadores.Length)
             {
-                PersonaModel.Persona nuevoJugador = new PersonaModel.Persona
+                Persona nuevoJugador = new Persona
                 {
                     Id = indice + 1,
                     Nombre = nombre,
@@ -42,12 +41,12 @@ namespace Proyecto_ED.Clases
             }
         }
 
-        // Agregamos este método para obtener los jugadores
-        public PersonaModel.Persona[] ObtenerJugadores()
+     
+        public Persona[] ObtenerJugadores()
         {
             return jugadores;
         }
-        public PersonaModel.Persona BuscarJugadorPorId(int id)
+        public Persona BuscarJugadorPorId(int id)
         {
             foreach (var jugador in jugadores)
             {
@@ -85,16 +84,15 @@ namespace Proyecto_ED.Clases
             {
                 if (jugadores[i].Id == id)
                 {
-                    // Mover los elementos restantes del arreglo hacia arriba
+               
                     for (int j = i; j < indice - 1; j++)
                     {
                         jugadores[j] = jugadores[j + 1];
                     }
 
-                    // Reducir el índice
                     indice--;
 
-                    // Llenar con null en la última posición (para evitar duplicados en DataGridView)
+                   
                     jugadores[indice] = null;
 
                     Console.WriteLine($"Jugador con Id {id} eliminado correctamente.");
@@ -105,10 +103,7 @@ namespace Proyecto_ED.Clases
             Console.WriteLine($"No se encontró un jugador con Id {id}.");
         }
 
-        public bool EstaVacio()
-        {
-            return indice == 0;
-        }
+       
     }
 
 }

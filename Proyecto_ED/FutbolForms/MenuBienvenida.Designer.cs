@@ -74,6 +74,7 @@
             this.labelCorreo.Size = new System.Drawing.Size(94, 13);
             this.labelCorreo.TabIndex = 23;
             this.labelCorreo.Text = "Correo Electronico";
+            this.labelCorreo.Click += new System.EventHandler(this.labelCorreo_Click);
             // 
             // txtCorreo
             // 
@@ -91,6 +92,7 @@
             this.labelCuatrimestre.Size = new System.Drawing.Size(65, 13);
             this.labelCuatrimestre.TabIndex = 21;
             this.labelCuatrimestre.Text = "Cuatrimestre";
+            this.labelCuatrimestre.Click += new System.EventHandler(this.labelCuatrimestre_Click);
             // 
             // txtCuatrimestre
             // 
@@ -108,6 +110,7 @@
             this.labelEdad.Size = new System.Drawing.Size(32, 13);
             this.labelEdad.TabIndex = 19;
             this.labelEdad.Text = "Edad";
+            this.labelEdad.Click += new System.EventHandler(this.labelEdad_Click);
             // 
             // label2
             // 
@@ -117,6 +120,7 @@
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Carrera";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // labelNombre
             // 
@@ -126,6 +130,7 @@
             this.labelNombre.Size = new System.Drawing.Size(91, 13);
             this.labelNombre.TabIndex = 17;
             this.labelNombre.Text = "Nombre Completo";
+            this.labelNombre.Click += new System.EventHandler(this.labelNombre_Click);
             // 
             // LabelTitulo
             // 
@@ -136,6 +141,7 @@
             this.LabelTitulo.Size = new System.Drawing.Size(315, 37);
             this.LabelTitulo.TabIndex = 16;
             this.LabelTitulo.Text = "Formulario de Futbol";
+            this.LabelTitulo.Click += new System.EventHandler(this.LabelTitulo_Click);
             // 
             // txtCarrera
             // 
@@ -167,6 +173,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(636, 261);
             this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ColumnID
             // 
@@ -288,6 +295,7 @@
             this.label3.Size = new System.Drawing.Size(18, 13);
             this.label3.TabIndex = 36;
             this.label3.Text = "ID";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBoxEliminar
             // 

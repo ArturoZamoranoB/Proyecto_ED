@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Proyecto_ED.Models
 {
-    internal class PersonaModel
+    public class Persona
     {
-        public class Persona
-        {
+        
+        
          
                 public int Id { get; set; }
                 public string Nombre { get; set; }
@@ -19,7 +19,7 @@ namespace Proyecto_ED.Models
                 public string Correo { get; set; }
             
 
-        }
+        
 
     }
 }
